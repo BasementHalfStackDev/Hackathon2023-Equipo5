@@ -43,7 +43,7 @@ public class Country {
 	private double earths_required;
 	private double countries_required;
 	private String data_quality;
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "country", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<User> users = new ArrayList<>();
 
 }

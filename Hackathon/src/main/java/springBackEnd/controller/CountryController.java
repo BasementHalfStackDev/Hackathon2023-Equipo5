@@ -12,13 +12,13 @@ import springBackEnd.service.CountryService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/countries")
+@RequestMapping("/api")
 public class CountryController {
 
     @Autowired
     CountryService countryService;
 
-    @GetMapping("/getOne")
+    @GetMapping("/countries/{country}")
     public ResponseEntity<Country> getCountry(@PathVariable String country) throws Exception {
         try {
             return ResponseEntity.ok(countryService.findCountryByName(country));
@@ -27,7 +27,7 @@ public class CountryController {
         }
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/countries/getAll")
     public ResponseEntity<List<Country>> getAllContries() throws Exception {
         try {
             return ResponseEntity.ok(countryService.getAllCountries());
