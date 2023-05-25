@@ -21,16 +21,6 @@ public class CountryController {
     CountryService countryService;
 
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/countries/{country}")
-    public ResponseEntity<Country> getCountry(@PathVariable String country) throws Exception {
-        try {
-            return ResponseEntity.ok(countryService.findCountryByName(country));
-        } catch (Exception e) {
-            throw new Exception("Error while getting a country", e);
-        }
-    }
-
-    @PreAuthorize("hasRole('USER')")
     @GetMapping("/countries")
     public ResponseEntity<List<Country>> getAllContries() throws Exception {
         try {
@@ -39,6 +29,28 @@ public class CountryController {
             throw new Exception("Error while getting all countries", e);
         }
     }
+    
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/countries/name/{country}")
+    public ResponseEntity<Country> getCountry(@PathVariable String country) throws Exception {
+        try {
+            return ResponseEntity.ok(countryService.findCountryByName(country));
+        } catch (Exception e) {
+            throw new Exception("Error while getting a country", e);
+        }
+    }
+    
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/countries/id/{id}")
+    public ResponseEntity<Country> getCountry(@PathVariable Long id) throws Exception {
+        try {
+            return ResponseEntity.ok(countryService.findCountryById(id));
+        } catch (Exception e) {
+            throw new Exception("Error while getting a country", e);
+        }
+    }
+
+    
 
 
 

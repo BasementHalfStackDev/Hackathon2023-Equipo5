@@ -18,6 +18,10 @@ public class CountryService {
     public Country findCountryByName(String country) {
         return countryDAO.findByCountry(country);
     }
+    
+    public Country findCountryById(Long id) {
+    	return countryDAO.findById(id).get();
+    }
 
     public List<Country> getAllCountries() {
         return countryDAO.findAll();
