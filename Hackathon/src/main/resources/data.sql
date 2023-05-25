@@ -3,28 +3,6 @@ DROP table IF EXISTS roles;
 DROP table IF EXISTS users;
 DROP TABLE IF EXISTS countries;
 
-CREATE TABLE users(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(50) UNIQUE NOT NULL,
-	country_id int NOT NULL,
-    password VARCHAR(120) NOT NULL,
-    username VARCHAR(20) UNIQUE NOT NULL,
-	FOREIGN KEY (country_id) REFERENCES countries(id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE roles(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(20) DEFAULT NULL
-);
-
-CREATE TABLE user_roles(
-	user_id INT NOT NULL,
-    role_id INT NOT NULL,
-    PRIMARY KEY (user_id, role_id),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE, 
-    FOREIGN KEY (role_id) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
 CREATE TABLE countries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     country VARCHAR(38) NOT NULL,
@@ -48,6 +26,28 @@ CREATE TABLE countries (
     earths_required NUMERIC(4 , 2 ) NOT NULL,
     countries_required NUMERIC(16 , 13 ) NOT NULL,
     data_quality VARCHAR(2) NOT NULL
+);
+
+CREATE TABLE users(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50) UNIQUE NOT NULL,
+	country_id int NOT NULL,
+    password VARCHAR(120) NOT NULL,
+    username VARCHAR(20) UNIQUE NOT NULL,
+	FOREIGN KEY (country_id) REFERENCES countries(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE roles(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) DEFAULT NULL
+);
+
+CREATE TABLE user_roles(
+	user_id INT NOT NULL,
+    role_id INT NOT NULL,
+    PRIMARY KEY (user_id, role_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE, 
+    FOREIGN KEY (role_id) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 INSERT INTO roles(name) VALUES('ROLE_USER');
