@@ -31,7 +31,7 @@ public class CountryController {
     }
 
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/countries/getAll")
+    @GetMapping("/countries")
     public ResponseEntity<List<Country>> getAllContries() throws Exception {
         try {
             return ResponseEntity.ok(countryService.getAllCountries());
