@@ -3,28 +3,6 @@ DROP table IF EXISTS roles;
 DROP table IF EXISTS users;
 DROP TABLE IF EXISTS countries;
 
-CREATE TABLE users(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(50) UNIQUE NOT NULL,
-	country_id int NOT NULL,
-    password VARCHAR(120) NOT NULL,
-    username VARCHAR(20) UNIQUE NOT NULL,
-	FOREIGN KEY (country_id) REFERENCES countries(id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE roles(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(20) DEFAULT NULL
-);
-
-CREATE TABLE user_roles(
-	user_id INT(20) NOT NULL,
-    role_id INT NOT NULL,
-    PRIMARY KEY (user_id, role_id),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE, 
-    FOREIGN KEY (role_id) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
 CREATE TABLE countries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     country VARCHAR(38) NOT NULL,
@@ -50,11 +28,33 @@ CREATE TABLE countries (
     data_quality VARCHAR(2) NOT NULL
 );
 
+CREATE TABLE users(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50) UNIQUE NOT NULL,
+	country_id int NOT NULL,
+    password VARCHAR(120) NOT NULL,
+    username VARCHAR(20) UNIQUE NOT NULL,
+	FOREIGN KEY (country_id) REFERENCES countries(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE roles(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) DEFAULT NULL
+);
+
+CREATE TABLE user_roles(
+	user_id INT NOT NULL,
+    role_id INT NOT NULL,
+    PRIMARY KEY (user_id, role_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE, 
+    FOREIGN KEY (role_id) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 INSERT INTO roles(name) VALUES('ROLE_USER');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 
-INSERT INTO users(email, password, username) VALUES ('admin@TA27.com', '$2a$10$mR4MU5esBbUd6JWuwWKTA.tRy.jo4d4XRkgnamcOJfw5pJ8Ao/RDS', 'admin');
-INSERT INTO users(email, password, username) VALUES ('user@TA27.com', '$2a$10$mR4MU5esBbUd6JWuwWKTA.tRy.jo4d4XRkgnamcOJfw5pJ8Ao/RDS', 'user');
+INSERT INTO users(email, country_id, password, username) VALUES ('admin@TA27.com', 76, '$2a$10$mR4MU5esBbUd6JWuwWKTA.tRy.jo4d4XRkgnamcOJfw5pJ8Ao/RDS', 'admin');
+INSERT INTO users(email, country_id, password, username) VALUES ('user@TA27.com', 4, '$2a$10$mR4MU5esBbUd6JWuwWKTA.tRy.jo4d4XRkgnamcOJfw5pJ8Ao/RDS', 'user');
 
 INSERT INTO user_roles(user_id, role_id) VALUES (1, 1);
 INSERT INTO user_roles(user_id, role_id) VALUES (1, 2);
