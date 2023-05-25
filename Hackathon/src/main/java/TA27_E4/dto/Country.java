@@ -27,7 +27,7 @@ public class Country {
 	private String region;
 	private double population_millions;
 	private double hdi;
-	private double gdp_per_capita;
+	private String gdp_per_capita;
 	private double cropland_footprint;
 	private double grazing_footprint;
 	private double forest_footprint;
