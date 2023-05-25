@@ -6,4 +6,6 @@ import springBackEnd.dto.Country;
 
 public interface CountryDAO extends JpaRepository<Country, Long> {
 
+    Country findByCountryName(String country);
+
 }
