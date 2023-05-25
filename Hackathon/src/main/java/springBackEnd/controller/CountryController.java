@@ -20,7 +20,6 @@ public class CountryController {
     @Autowired
     CountryService countryService;
 
-    @PreAuthorize("hasRole('USER')")
     @GetMapping("/countries")
     public ResponseEntity<List<Country>> getAllContries() throws Exception {
         try {
@@ -30,7 +29,6 @@ public class CountryController {
         }
     }
     
-    @PreAuthorize("hasRole('USER')")
     @GetMapping("/countries/name/{country}")
     public ResponseEntity<Country> getCountry(@PathVariable String country) throws Exception {
         try {
@@ -40,7 +38,6 @@ public class CountryController {
         }
     }
     
-    @PreAuthorize("hasRole('USER')")
     @GetMapping("/countries/id/{id}")
     public ResponseEntity<Country> getCountry(@PathVariable Long id) throws Exception {
         try {
