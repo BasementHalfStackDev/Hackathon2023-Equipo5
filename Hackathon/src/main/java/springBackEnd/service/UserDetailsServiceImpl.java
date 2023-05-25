@@ -1,7 +1,7 @@
 /**
  * @author BasementHalfStackDev/Josep Maria Pallas Batalla
  */
-package TA27_E4.service;
+package springBackEnd.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import TA27_E4.dao.UserDAO;
-import TA27_E4.dto.User;
+import springBackEnd.dao.UserDAO;
+import springBackEnd.dto.User;
 
 @Service // Implement service
 public class UserDetailsServiceImpl implements UserDetailsService {

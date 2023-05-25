@@ -1,4 +1,4 @@
-package TA27_E4.controller;
+package springBackEnd.controller;
 
 import java.util.HashSet;
 import java.util.List;
@@ -6,6 +6,17 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import jakarta.validation.Valid;
+import springBackEnd.dao.RoleDAO;
+import springBackEnd.dao.UserDAO;
+import springBackEnd.dto.ERole;
+import springBackEnd.dto.JwtResponse;
+import springBackEnd.dto.LoginRequest;
+import springBackEnd.dto.MessageResponse;
+import springBackEnd.dto.Role;
+import springBackEnd.dto.SignupRequest;
+import springBackEnd.dto.User;
+import springBackEnd.service.UserDetailsImpl;
+import springBackEnd.utils.JwtUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,18 +30,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import TA27_E4.dao.RoleDAO;
-import TA27_E4.dao.UserDAO;
-import TA27_E4.dto.ERole;
-import TA27_E4.dto.Role;
-import TA27_E4.dto.User;
-import TA27_E4.dto.JwtResponse;
-import TA27_E4.dto.LoginRequest;
-import TA27_E4.dto.MessageResponse;
-import TA27_E4.dto.SignupRequest;
-import TA27_E4.utils.JwtUtils;
-import TA27_E4.service.UserDetailsImpl;
 
 
 @CrossOrigin(origins = "*", maxAge = 3600) // Allows requests from all origins with 1 hour cache

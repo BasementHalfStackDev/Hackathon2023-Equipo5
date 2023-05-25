@@ -1,7 +1,7 @@
 /**
  * @author BasementHalfStackDev/Josep Maria Pallas Batalla
  */
-package TA27_E4.utils;
+package springBackEnd.utils;
 
 import java.util.Date;
 
@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import TA27_E4.service.UserDetailsImpl;
 import io.jsonwebtoken.*;
+import springBackEnd.service.UserDetailsImpl;
 
 // Utils class
 @Component

@@ -1,7 +1,7 @@
 /**
  * @author BasementHalfStackDev/Josep Maria Pallas Batalla
  */
-package TA27_E4.dto;
+package springBackEnd.dto;
 
 // Enum with possible roles
 public enum ERole {

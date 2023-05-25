@@ -1,7 +1,7 @@
 /**
  * 
  */
-package TA27_E4.dto;
+package springBackEnd.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

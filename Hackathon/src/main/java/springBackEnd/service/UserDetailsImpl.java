@@ -1,7 +1,7 @@
 /**
  * @author BasementHalfStackDev/Josep Maria Pallas Batalla
  */
-package TA27_E4.service;
+package springBackEnd.service;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import TA27_E4.dto.User;
+import springBackEnd.dto.User;
 
 // Implement UserDetails
 public class UserDetailsImpl implements UserDetails {

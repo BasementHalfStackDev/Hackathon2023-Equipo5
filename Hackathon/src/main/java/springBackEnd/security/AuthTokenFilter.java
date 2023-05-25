@@ -1,7 +1,7 @@
 /**
  * @author BasementHalfStackDev/Josep Maria Pallas Batalla
  */
-package TA27_E4.security;
+package springBackEnd.security;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import springBackEnd.service.UserDetailsServiceImpl;
+import springBackEnd.utils.JwtUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +21,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-
-import TA27_E4.service.UserDetailsServiceImpl;
-import TA27_E4.utils.JwtUtils;
 
 // Implement once per request filter
 public class AuthTokenFilter extends OncePerRequestFilter {

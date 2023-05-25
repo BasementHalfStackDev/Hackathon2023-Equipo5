@@ -1,11 +1,11 @@
-package TA27_E4.dao;
+package springBackEnd.dao;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import TA27_E4.dto.ERole;
-import TA27_E4.dto.Role;
+import springBackEnd.dto.ERole;
+import springBackEnd.dto.Role;
 
 public interface RoleDAO extends JpaRepository<Role, Long> {
 	Optional<Role> findByName(ERole name);

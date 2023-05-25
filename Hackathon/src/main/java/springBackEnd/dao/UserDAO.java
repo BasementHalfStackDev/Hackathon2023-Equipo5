@@ -1,10 +1,10 @@
-package TA27_E4.dao;
+package springBackEnd.dao;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import TA27_E4.dto.User;
+import springBackEnd.dto.User;
 
 public interface UserDAO extends JpaRepository<User, Long> {
 	Optional<User> findByUsername(String username);
