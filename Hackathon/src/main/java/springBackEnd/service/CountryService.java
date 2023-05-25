@@ -16,7 +16,7 @@ public class CountryService {
 
 
     public Country findCountryByName(String country) {
-        return countryDAO.findByCountryName(country);
+        return countryDAO.findByCountry(country);
     }
 
     public List<Country> getAllCountries() {
