@@ -50,16 +50,6 @@ CREATE TABLE user_roles(
     FOREIGN KEY (role_id) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-INSERT INTO roles(name) VALUES('ROLE_USER');
-INSERT INTO roles(name) VALUES('ROLE_ADMIN');
-
-INSERT INTO users(email, country_id, password, username) VALUES ('admin@TA27.com', 76, '$2a$10$mR4MU5esBbUd6JWuwWKTA.tRy.jo4d4XRkgnamcOJfw5pJ8Ao/RDS', 'admin');
-INSERT INTO users(email, country_id, password, username) VALUES ('user@TA27.com', 4, '$2a$10$mR4MU5esBbUd6JWuwWKTA.tRy.jo4d4XRkgnamcOJfw5pJ8Ao/RDS', 'user');
-
-INSERT INTO user_roles(user_id, role_id) VALUES (1, 1);
-INSERT INTO user_roles(user_id, role_id) VALUES (1, 2);
-INSERT INTO user_roles(user_id, role_id) VALUES (2, 1);
-
 
 INSERT INTO countries(country,region,population_millions,hdi,gdp_per_capita,cropland_footprint,grazing_footprint,forest_footprint,carbon_footprint,fish_footprint,total_ecological_footprint,cropland,grazing_land,forest_land,fishing_water,urban_land,total_biocapacity,biocapacity_deficit_or_reserve,earths_required,countries_required,data_quality) VALUES ('Afghanistan','Middle East/Central Asia',29.82,0.46,'$614.66',0.3,0.2,0.08,0.18,0,0.79,0.24,0.2,0.02,0,0.04,0.5,-0.3,0.46,1.6,'6');
 INSERT INTO countries(country,region,population_millions,hdi,gdp_per_capita,cropland_footprint,grazing_footprint,forest_footprint,carbon_footprint,fish_footprint,total_ecological_footprint,cropland,grazing_land,forest_land,fishing_water,urban_land,total_biocapacity,biocapacity_deficit_or_reserve,earths_required,countries_required,data_quality) VALUES ('Albania','Northern/Eastern Europe',3.16,0.73,'$4,534.37',0.78,0.22,0.25,0.87,0.02,2.21,0.55,0.21,0.29,0.07,0.06,1.18,-1.03,1.27,1.87,'6');
@@ -250,3 +240,12 @@ INSERT INTO countries(country,region,population_millions,hdi,gdp_per_capita,crop
 INSERT INTO countries(country,region,population_millions,hdi,gdp_per_capita,cropland_footprint,grazing_footprint,forest_footprint,carbon_footprint,fish_footprint,total_ecological_footprint,cropland,grazing_land,forest_land,fishing_water,urban_land,total_biocapacity,biocapacity_deficit_or_reserve,earths_required,countries_required,data_quality) VALUES ('Zambia','Africa',14.08,0.58,'$1,740.64',0.19,0.18,0.33,0.24,0.01,0.99,0.24,0.94,0.99,0.02,0.04,2.23,1.24,0.57,0.44,'6');
 INSERT INTO countries(country,region,population_millions,hdi,gdp_per_capita,cropland_footprint,grazing_footprint,forest_footprint,carbon_footprint,fish_footprint,total_ecological_footprint,cropland,grazing_land,forest_land,fishing_water,urban_land,total_biocapacity,biocapacity_deficit_or_reserve,earths_required,countries_required,data_quality) VALUES ('Zimbabwe','Africa',13.72,0.49,'$865.91',0.2,0.32,0.29,0.53,0.01,1.37,0.15,0.32,0.12,0.01,0.02,0.62,-0.75,0.79,2.2,'6');
 
+INSERT INTO users(email, country_id, password, username) VALUES ('admin@TA27.com', 6, '$2a$10$mR4MU5esBbUd6JWuwWKTA.tRy.jo4d4XRkgnamcOJfw5pJ8Ao/RDS', 'admin');
+INSERT INTO users(email, country_id, password, username) VALUES ('user@TA27.com', 4, '$2a$10$mR4MU5esBbUd6JWuwWKTA.tRy.jo4d4XRkgnamcOJfw5pJ8Ao/RDS', 'user');
+
+INSERT INTO roles(name) VALUES('ROLE_USER');
+INSERT INTO roles(name) VALUES('ROLE_ADMIN');
+
+INSERT INTO user_roles(user_id, role_id) VALUES (1, 1);
+INSERT INTO user_roles(user_id, role_id) VALUES (1, 2);
+INSERT INTO user_roles(user_id, role_id) VALUES (2, 1);
